@@ -6,7 +6,7 @@ var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
 var guessesSoFar = [];
-var newLetter = [];
+var newLetter = generateLetter();
 
 
 // computer chooses random letter from array
@@ -19,14 +19,11 @@ function reset() {
 	displayGuessesLeft()
 	guessesSoFar.length = 0;
 	displayGuessesSoFar();
-	//????????????? NEED NEW RANDOM LETTER???????????????????????
-	newLetter.length = 0;
-	generateLetter();
+	newLetter = generateLetter();
 }
 
 function generateLetter() {
-	var randomLetter = letters[Math.floor(Math.random() * letters.length)];
-	newLetter.push(randomLetter);
+	return letters[Math.floor(Math.random() * letters.length)];
 }
 
 function displayGuessesLeft() {
@@ -47,8 +44,6 @@ function wrongGuess() {
 // ************************************************
 
 
-
-
 generateLetter();
 console.log(newLetter);
 displayGuessesLeft();
@@ -57,7 +52,7 @@ displayGuessesLeft();
 // user presses key
 document.onkeyup = function(event) {	
 	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-		
+		console.log(userGuess);
 		guessesSoFar.push(userGuess);
 		displayGuessesSoFar();
 		
