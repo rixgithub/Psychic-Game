@@ -8,10 +8,6 @@ var guessesLeft = 9;
 var guessesSoFar = [];
 var newLetter = generateLetter();
 
-
-// computer chooses random letter from array
-// var randomLetter = letters[Math.floor(Math.random() * letters.length)];
-
 // *********FUNCTIONS*********************
 
 function reset() {
@@ -59,7 +55,7 @@ document.onkeyup = function(event) {
 		if ((guessesLeft > 0) && (userGuess === newLetter)) {
 			wins++;
 			document.querySelector("#wins").innerHTML = "Wins: " + wins;
-			alert("You are a Pyschic!");
+			alert("You guessed correctly. You are a Pyschic!");
 			reset();
 		}
 		if ((guessesLeft > 0) && (userGuess !== newLetter)) {
@@ -68,7 +64,7 @@ document.onkeyup = function(event) {
 		if (guessesLeft === 0) {
 			losses++;
 			document.querySelector("#losses").innerHTML = "Losses: " + losses;
-			alert("Psychics aren't real!");
+			alert("Psychics aren't real but maybe you should try again!");
 			reset();
 		}
 }
